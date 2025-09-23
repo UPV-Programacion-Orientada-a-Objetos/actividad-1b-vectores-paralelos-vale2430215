@@ -11,39 +11,46 @@ int main() {
     int opcion;
     //variable para guardar el producto que se desea consultar
     int producto;
+    //variable del tamaño de arreglos
+    int tamano=sizeof(codigo)/sizeof(codigo[0]);
     
+    std::cout<<" "<<std::endl;
     std::cout<<"Sistema de Inventario de 'El Martillo'"<<std::endl;
+    std::cout<<" "<<std::endl;
    
 
     //bucle para repetir el menu
     do {
-        std::cout<<"MENU"<<std::endl;
+        std::cout<<"--MENU--"<<std::endl;
         std::cout<<"Que opcion desea realizar?"<<std::endl;
         std::cout<<"1.Consultar productos"<<std::endl;
         std::cout<<"2.Actualizar inventario"<<std::endl;
         std::cout<<"3.Generar reporte"<<std::endl;
         std::cout<<"4.Buscar producto mas caro"<<std::endl;
         std::cout<<"5.Salir"<<std::endl;
+        std::cout<<" "<<std::endl;
         std::cin>>opcion;
 
         //distintos casos dependiendo de la opcion escogida
         switch (opcion){
         case 1:
         //consultar productos
-            std::cout<<"Ingresa el codigo del producto: "<<std::endl;
+            std::cout<<"Ingresa el codigo del producto: ";
+            std::cout<<" "<<std::endl;
             std::cin>>producto;
 
             {
             //variable bandera
             bool existe = false;
 
-
-            for (int i = 0; i < 5; i++){
+            for (int i = 0; i < tamano; i++){
                 if (codigo[i]==producto){
+                    std::cout<<"--PRODUCTO CONSULTADO--"<<std::endl;
                     std::cout<<"Codigo: "<<codigo[i]<<std::endl;
                     std::cout<<"Nombre: "<<nombre[i]<<std::endl;
                     std::cout<<"Stock: "<<stock[i]<<std::endl;
                     std::cout<<"Precio: "<<precio[i]<<std::endl;
+                    std::cout<<" "<<std::endl;
                     //valor bandera cambia a true
                     existe=true;
                     break;
@@ -58,8 +65,19 @@ int main() {
         break;
 
         case 2:
+            std::cout<<"oli"<<std::endl;
         break;
         case 3:
+            std::cout<<"--REPORTE DE INVENTARIO--"<<std::endl;
+            std::cout<<" --Codigo-- |    --Nombre--    | --Stock-- | --Precio--"<<std::endl;
+            std::cout<<"-------------------------------------------------------"<<std::endl;
+            for (int i = 0; i < tamano; i++)
+            {
+              std::cout<<"     "<<codigo[i]<<"     "<<nombre[i]<< std::left <<"         "<<stock[i]<< std::left<<"      "<<precio[i]<< std::left<<std::endl;
+              std::cout<<" "<<std::endl;
+            }
+            
+            
         break;
         case 4:
         break;
